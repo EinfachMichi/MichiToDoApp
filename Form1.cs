@@ -27,13 +27,30 @@ namespace MichiToDo
         {
             Instance = this;
 
-            CloseTaskListSymbol();
+            EnableForm();
         }
 
+
         #region TaskListSymbol
+        private void mainForm_taskListSymbol_Click(object sender, EventArgs e)
+        {
+            ToggleTaskListSymbol();
+        }
+
+        private void mainForm_toggleTaskList_Click(object sender, EventArgs e)
+        {
+            ToggleTaskListSymbol();
+        }
+
+        private void mainForm_taskListSymbol_DoubleClick(object sender, EventArgs e)
+        {
+            ToggleTaskListSymbol();
+        }
 
         private void ToggleTaskListSymbol()
         {
+            if (taskList.Count == 0) return;
+
             mainForm_taskListSymbol_open = mainForm_taskListSymbol_open ? false : true;
 
             if (mainForm_taskListSymbol_open) OpenTaskListSymbol();
@@ -56,26 +73,6 @@ namespace MichiToDo
 
         #endregion
 
-        #region Events
-
-        #region TaskListSymbol
-        private void mainForm_taskListSymbol_Click(object sender, EventArgs e)
-        {
-            ToggleTaskListSymbol();
-        }
-
-        private void mainForm_toggleTaskList_Click(object sender, EventArgs e)
-        {
-            ToggleTaskListSymbol();
-        }
-
-        private void mainForm_taskListSymbol_DoubleClick(object sender, EventArgs e)
-        {
-            ToggleTaskListSymbol();
-        }
-
-        #endregion
-
         #region AddNewTaskButton
 
         private bool mainForm_addNewTaskButton_hover;
@@ -84,7 +81,7 @@ namespace MichiToDo
         {
             DisableForm();
 
-            EditForm editForm = new EditForm();
+            EditForm editForm = new EditForm(EditMode.New);
             editForm.Show();
         }
 
@@ -115,7 +112,6 @@ namespace MichiToDo
 
         #endregion
 
-        #endregion
 
         private void UpdateButtonImage(Button button, Image image) => button.Image = image;
 
@@ -133,6 +129,8 @@ namespace MichiToDo
         {
             mainForm_addNewTaskButton.Enabled = true;
 
+            if (taskList.Count == 0) CloseTaskListSymbol();
+
             foreach (Task task in taskList)
             {
                 task.Enabled = true;
@@ -148,9 +146,18 @@ namespace MichiToDo
             OpenTaskListSymbol();
         }
 
-        public void DeleteTask()
+        public void EditTask(Task task)
         {
+            EditForm editForm = new EditForm(EditMode.Edit, task);
+            editForm.Show();
+            DisableForm();
+        }
 
+        public void DeleteTask(Task task)
+        {
+            taskList.Remove(task);
+            mainForm_taskListPanel.Controls.Remove(task);
+            EnableForm();
         }
     }
 
@@ -159,17 +166,7 @@ namespace MichiToDo
         public Button button { get; private set; }
         public Button done_Button { get; private set; }
 
-        private TaskInfo info;
-
-        public TaskInfo Info
-        {
-            get => info;
-            set
-            {
-                info = value;
-                Edit(value);
-            }
-        }
+        public TaskInfo info;
 
         public Task(TaskInfo info)
         {
@@ -201,6 +198,7 @@ namespace MichiToDo
             button.Text = info.taskName;
             button.TextAlign = ContentAlignment.MiddleLeft;
             button.UseVisualStyleBackColor = true;
+            button.Click += OnButtonClick;
 
             done_Button.Anchor = AnchorStyles.Left;
             done_Button.FlatAppearance.BorderSize = 0;
@@ -214,18 +212,18 @@ namespace MichiToDo
             done_Button.UseVisualStyleBackColor = true;
         }
 
+        private void OnButtonClick(object sender, EventArgs e)
+        {
+            MainForm.Instance.EditTask(this);
+        }
+
         public void UpdateTask()
         {
             button.Text = info.taskName;
         }
-
-        private void Edit(TaskInfo newInfo)
-        {
-            button.Text = newInfo.taskName;
-        }
     }
 
-    public struct TaskInfo
+    public class TaskInfo
     {
         public string taskName;
         public string taskNotes;

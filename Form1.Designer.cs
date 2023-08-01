@@ -44,7 +44,7 @@ namespace MichiToDo
             this.mainForm_title.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.mainForm_title.Font = new System.Drawing.Font("Microsoft YaHei UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainForm_title.ForeColor = System.Drawing.Color.Silver;
-            this.mainForm_title.Location = new System.Drawing.Point(137, 25);
+            this.mainForm_title.Location = new System.Drawing.Point(127, 17);
             this.mainForm_title.Name = "mainForm_title";
             this.mainForm_title.Size = new System.Drawing.Size(325, 75);
             this.mainForm_title.TabIndex = 0;
@@ -76,8 +76,9 @@ namespace MichiToDo
             this.mainForm_taskListPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.mainForm_taskListPanel.Location = new System.Drawing.Point(42, 241);
             this.mainForm_taskListPanel.Name = "mainForm_taskListPanel";
-            this.mainForm_taskListPanel.Size = new System.Drawing.Size(488, 200);
+            this.mainForm_taskListPanel.Size = new System.Drawing.Size(507, 200);
             this.mainForm_taskListPanel.TabIndex = 4;
+            this.mainForm_taskListPanel.WrapContents = false;
             // 
             // mainForm_addNewTaskButton
             // 
@@ -103,7 +104,7 @@ namespace MichiToDo
             // mainForm_taskListSymbol
             // 
             this.mainForm_taskListSymbol.Image = global::MichiToDo.Properties.Resources.List_Closed_Symbol;
-            this.mainForm_taskListSymbol.Location = new System.Drawing.Point(30, 158);
+            this.mainForm_taskListSymbol.Location = new System.Drawing.Point(36, 158);
             this.mainForm_taskListSymbol.Name = "mainForm_taskListSymbol";
             this.mainForm_taskListSymbol.Size = new System.Drawing.Size(60, 60);
             this.mainForm_taskListSymbol.TabIndex = 3;

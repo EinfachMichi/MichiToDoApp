@@ -12,22 +12,36 @@ namespace MichiToDo
 {
     public partial class EditForm : Form
     {
-        private TaskInfo info;
+        private Task task;
         private List<Button> priorityButtons = new List<Button>();
 
-        public EditForm()
+        public EditForm(EditMode mode, Task task = null)
         {
             InitializeComponent();
-
             priorityButtons.Add(editForm_priorityButton1);
             priorityButtons.Add(editForm_priorityButton2);
             priorityButtons.Add(editForm_priorityButton3);
             priorityButtons.Add(editForm_priorityButton4);
             priorityButtons.Add(editForm_priorityButton5);
 
-            info.taskPriority = 1;
+            if (task == null) task = new Task(new TaskInfo() { taskPriority = 1 });
+
+            this.task = task;
 
             UpdatePriorityButtons();
+            UpdateInfo();
+            
+
+            if(mode == EditMode.Edit)
+            {
+                editForm_notesTextbox.Select();
+                ToggleDeleteButtonVisibility(true);
+            }
+            else
+            {
+                editForm_nameTextbox.Select();
+                ToggleDeleteButtonVisibility(false);
+            }
         }
 
         private void EditForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -39,10 +53,10 @@ namespace MichiToDo
 
         private void editForm_applyButton_Click(object sender, EventArgs e)
         {
-            info.taskName = editForm_nameTextbox.Text;
-            info.taskNotes = editForm_notesTextbox.Text;
+            task.info.taskName = editForm_nameTextbox.Text;
+            task.info.taskNotes = editForm_notesTextbox.Text;
 
-            MainForm.Instance.AddNewTask(new Task(info));
+            MainForm.Instance.AddNewTask(task);
             Close();
         }
 
@@ -111,8 +125,7 @@ namespace MichiToDo
 
         #endregion
 
-
-        #region DeleteButtons
+        #region DeleteButton
 
         private bool editForm_deleteButton_hover;
 
@@ -141,47 +154,59 @@ namespace MichiToDo
             UpdateButtonImage(editForm_deleteButton, Properties.Resources.Delete_Task_Button_Pressed);
         }
 
+        private void editForm_deleteButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show($"Do you really want to delete the task '{task.info.taskName}'?", "Delete task", MessageBoxButtons.YesNo);
+            if(result == DialogResult.Yes)
+            {
+                MainForm.Instance.DeleteTask(task);
+                Close();
+            }
+        }
+
+        private void ToggleDeleteButtonVisibility(bool active) => editForm_deleteButton.Visible = active;
+
         #endregion
 
         #region PriorityButtons
 
         private void editForm_priorityButton1_Click(object sender, EventArgs e)
         {
-            if (info.taskPriority == 1) return;
+            if (task.info.taskPriority == 1) return;
 
-            info.taskPriority = 1;
+            task.info.taskPriority = 1;
             UpdatePriorityButtons();
         }
 
         private void editForm_priorityButton2_Click(object sender, EventArgs e)
         {
-            if (info.taskPriority == 2) return;
+            if (task.info.taskPriority == 2) return;
 
-            info.taskPriority = 2;
+            task.info.taskPriority = 2;
             UpdatePriorityButtons();
         }
 
         private void editForm_priorityButton3_Click(object sender, EventArgs e)
         {
-            if (info.taskPriority == 3) return;
+            if (task.info.taskPriority == 3) return;
 
-            info.taskPriority = 3;
+            task.info.taskPriority = 3;
             UpdatePriorityButtons();
         }
 
         private void editForm_priorityButton4_Click(object sender, EventArgs e)
         {
-            if (info.taskPriority == 4) return;
+            if (task.info.taskPriority == 4) return;
 
-            info.taskPriority = 4;
+            task.info.taskPriority = 4;
             UpdatePriorityButtons();
         }
 
         private void editForm_priorityButton5_Click(object sender, EventArgs e)
         {
-            if (info.taskPriority == 5) return;
+            if (task.info.taskPriority == 5) return;
 
-            info.taskPriority = 5;
+            task.info.taskPriority = 5;
             UpdatePriorityButtons();
         }
 
@@ -189,7 +214,7 @@ namespace MichiToDo
         {
             for(int i = 0; i < priorityButtons.Count; i++)
             {
-                if (info.taskPriority - 1 == i)
+                if (task.info.taskPriority - 1 == i)
                 {
                     SelectButton(priorityButtons[i]);
                     continue;
@@ -211,6 +236,18 @@ namespace MichiToDo
 
         #endregion
 
+        private void UpdateInfo()
+        {
+            editForm_nameTextbox.Text = task.info.taskName;
+            editForm_notesTextbox.Text = task.info.taskNotes;
+        }
+
         private void UpdateButtonImage(Button button, Image image) => button.Image = image;
+    }
+
+    public enum EditMode
+    {
+        New,
+        Edit
     }
 }

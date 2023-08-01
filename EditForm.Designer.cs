@@ -163,6 +163,7 @@ namespace MichiToDo
             this.editForm_deleteButton.TabIndex = 11;
             this.editForm_deleteButton.Text = "Delete";
             this.editForm_deleteButton.UseVisualStyleBackColor = true;
+            this.editForm_deleteButton.Click += new System.EventHandler(this.editForm_deleteButton_Click);
             this.editForm_deleteButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editForm_deleteButton_MouseDown);
             this.editForm_deleteButton.MouseEnter += new System.EventHandler(this.editForm_deleteButton_MouseEnter);
             this.editForm_deleteButton.MouseLeave += new System.EventHandler(this.editForm_deleteButton_MouseLeave);
