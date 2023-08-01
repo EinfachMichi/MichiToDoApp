@@ -15,8 +15,7 @@ namespace MichiToDo
         public static MainForm Instance;
 
         public List<Task> taskList = new List<Task>();
-
-        private bool mainForm_taskListSymbol_open;
+        public List<Task> taskDoneList = new List<Task>();
 
         public MainForm()
         {
@@ -32,6 +31,9 @@ namespace MichiToDo
 
 
         #region TaskListSymbol
+
+        private bool mainForm_taskListSymbol_open;
+
         private void mainForm_taskListSymbol_Click(object sender, EventArgs e)
         {
             ToggleTaskListSymbol();
@@ -49,7 +51,11 @@ namespace MichiToDo
 
         private void ToggleTaskListSymbol()
         {
-            if (taskList.Count == 0) return;
+            if (taskList.Count == 0)
+            {
+                CloseTaskListSymbol();
+                return;
+            }
 
             mainForm_taskListSymbol_open = mainForm_taskListSymbol_open ? false : true;
 
@@ -112,6 +118,50 @@ namespace MichiToDo
 
         #endregion
 
+        #region TaskDoneListSymbol
+
+        private bool mainForm_taskDoneListSymbol_open;
+
+        private void mainForm_taskDoneListSymbol_Click(object sender, EventArgs e)
+        {
+            ToggleTaskDoneListSymbol();
+        }
+
+        private void mainForm_toggleTaskDoneListButton_Click(object sender, EventArgs e)
+        {
+            ToggleTaskDoneListSymbol();
+        }
+
+        private void mainForm_taskDoneListSymbol_DoubleClick(object sender, EventArgs e)
+        {
+            ToggleTaskDoneListSymbol();
+        }
+
+        private void ToggleTaskDoneListSymbol()
+        {
+            if (taskDoneList.Count == 0) return;
+
+            mainForm_taskDoneListSymbol_open = mainForm_taskDoneListSymbol_open ? false : true;
+
+            if (mainForm_taskDoneListSymbol_open) OpenTaskDoneListSymbol();
+            else CloseTaskDoneListSymbol();
+        }
+
+        private void OpenTaskDoneListSymbol()
+        {
+            mainForm_taskDoneListSymbol.Image = Properties.Resources.List_Opened_Symbol;
+            mainForm_taskDoneListSymbol_open = true;
+            mainForm_taskDoneListPanel.Visible = true;
+        }
+
+        private void CloseTaskDoneListSymbol()
+        {
+            mainForm_taskDoneListSymbol.Image = Properties.Resources.List_Closed_Symbol;
+            mainForm_taskDoneListSymbol_open = false;
+            mainForm_taskDoneListPanel.Visible = false;
+        }
+
+        #endregion
 
         private void UpdateButtonImage(Button button, Image image) => button.Image = image;
 
@@ -130,8 +180,14 @@ namespace MichiToDo
             mainForm_addNewTaskButton.Enabled = true;
 
             if (taskList.Count == 0) CloseTaskListSymbol();
+            if (taskDoneList.Count == 0) CloseTaskDoneListSymbol();
 
             foreach (Task task in taskList)
+            {
+                task.Enabled = true;
+            }
+
+            foreach (Task task in taskDoneList)
             {
                 task.Enabled = true;
             }
@@ -159,6 +215,19 @@ namespace MichiToDo
             mainForm_taskListPanel.Controls.Remove(task);
             EnableForm();
         }
+
+        public void TaskDone(Task task)
+        {
+            taskList.Remove(task);
+            mainForm_taskListPanel.Controls.Remove(task);
+
+            taskDoneList.Add(task);
+            mainForm_taskDoneListPanel.Controls.Add(task);
+            task.editable = false;
+
+            if(taskList.Count == 0) CloseTaskListSymbol();
+            OpenTaskDoneListSymbol();
+        }
     }
 
     public class Task : Panel
@@ -167,6 +236,7 @@ namespace MichiToDo
         public Button done_Button { get; private set; }
 
         public TaskInfo info;
+        public bool editable = true;
 
         public Task(TaskInfo info)
         {
@@ -210,11 +280,21 @@ namespace MichiToDo
             done_Button.Name = $"mainForm_taskStateButton_{info.taskName}";
             done_Button.Size = new Size(55, 56);
             done_Button.UseVisualStyleBackColor = true;
+            done_Button.Click += OnDoneButtonClick;
         }
 
         private void OnButtonClick(object sender, EventArgs e)
         {
+            if (!editable) return;
+
             MainForm.Instance.EditTask(this);
+        }
+
+        private void OnDoneButtonClick(object sender, EventArgs e)
+        {
+            done_Button.Image = Properties.Resources.Task_Button_Checked;
+            done_Button.Enabled = false;
+            MainForm.Instance.TaskDone(this);
         }
 
         public void UpdateTask()
