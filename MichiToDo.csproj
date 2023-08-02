@@ -146,5 +146,35 @@
   <ItemGroup>
     <None Include="Resources\List Arrow Opened.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Priority_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Priority_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Priority_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Priority_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Priority_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Priority_5_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Priority_1_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Priority_2_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Priority_3_Selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Priority_4_Selected.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

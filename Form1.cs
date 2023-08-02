@@ -280,6 +280,7 @@ namespace MichiToDo
     {
         public Button button { get; private set; }
         public Button done_Button { get; private set; }
+        public PictureBox priorityDisplay { get; private set; }
 
         public TaskInfo info;
         public bool editable = true;
@@ -296,11 +297,13 @@ namespace MichiToDo
         {
             button = new Button();
             done_Button = new Button();
+            priorityDisplay = new PictureBox();
 
             Controls.Add(button);
             Controls.Add(done_Button);
+            Controls.Add(priorityDisplay);
             Name = $"mainForm_taskPanel_{info.taskName}_{id}";
-            Size = new Size(472, 61);
+            Size = new Size(550, 61);
 
             button.AutoSize = true;
             button.FlatAppearance.BorderSize = 0;
@@ -330,6 +333,11 @@ namespace MichiToDo
             done_Button.Size = new Size(55, 56);
             done_Button.UseVisualStyleBackColor = true;
             done_Button.Click += OnDoneButtonClick;
+
+            priorityDisplay.Location = new Point(475, 3);
+            priorityDisplay.Name = $"mainForm_priorityDisplay_{info.taskName}_{id}";
+            priorityDisplay.Size = new Size(54, 54);
+            priorityDisplay.TabStop = false;
         }
 
         private void Button_MouseUp(object sender, MouseEventArgs e)
@@ -368,6 +376,24 @@ namespace MichiToDo
         public void UpdateTask()
         {
             button.Text = info.taskName;
+            switch (info.taskPriority)
+            {
+                case 1:
+                    priorityDisplay.Image = Properties.Resources.Priority_1;
+                    break;
+                case 2:
+                    priorityDisplay.Image = Properties.Resources.Priority_2;
+                    break;
+                case 3:
+                    priorityDisplay.Image = Properties.Resources.Priority_3;
+                    break;
+                case 4:
+                    priorityDisplay.Image = Properties.Resources.Priority_4;
+                    break;
+                case 5:
+                    priorityDisplay.Image = Properties.Resources.Priority_5;
+                    break;
+            }
         }
     }
 

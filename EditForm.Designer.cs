@@ -63,9 +63,10 @@ namespace MichiToDo
             this.editForm_nameTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.editForm_nameTextbox.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editForm_nameTextbox.ForeColor = System.Drawing.Color.Silver;
-            this.editForm_nameTextbox.Location = new System.Drawing.Point(190, 59);
+            this.editForm_nameTextbox.Location = new System.Drawing.Point(168, 62);
+            this.editForm_nameTextbox.MaxLength = 26;
             this.editForm_nameTextbox.Name = "editForm_nameTextbox";
-            this.editForm_nameTextbox.Size = new System.Drawing.Size(360, 35);
+            this.editForm_nameTextbox.Size = new System.Drawing.Size(382, 35);
             this.editForm_nameTextbox.TabIndex = 2;
             // 
             // editForm_notesLabel
@@ -179,7 +180,7 @@ namespace MichiToDo
             this.editForm_priorityButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editForm_priorityButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editForm_priorityButton5.ForeColor = System.Drawing.Color.White;
-            this.editForm_priorityButton5.Image = ((System.Drawing.Image)(resources.GetObject("editForm_priorityButton5.Image")));
+            this.editForm_priorityButton5.Image = global::MichiToDo.Properties.Resources.Priority_5;
             this.editForm_priorityButton5.Location = new System.Drawing.Point(455, 547);
             this.editForm_priorityButton5.Name = "editForm_priorityButton5";
             this.editForm_priorityButton5.Size = new System.Drawing.Size(54, 54);
@@ -198,7 +199,7 @@ namespace MichiToDo
             this.editForm_priorityButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editForm_priorityButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editForm_priorityButton4.ForeColor = System.Drawing.Color.White;
-            this.editForm_priorityButton4.Image = ((System.Drawing.Image)(resources.GetObject("editForm_priorityButton4.Image")));
+            this.editForm_priorityButton4.Image = global::MichiToDo.Properties.Resources.Priority_4;
             this.editForm_priorityButton4.Location = new System.Drawing.Point(395, 547);
             this.editForm_priorityButton4.Name = "editForm_priorityButton4";
             this.editForm_priorityButton4.Size = new System.Drawing.Size(54, 54);
@@ -217,7 +218,7 @@ namespace MichiToDo
             this.editForm_priorityButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editForm_priorityButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editForm_priorityButton3.ForeColor = System.Drawing.Color.White;
-            this.editForm_priorityButton3.Image = ((System.Drawing.Image)(resources.GetObject("editForm_priorityButton3.Image")));
+            this.editForm_priorityButton3.Image = global::MichiToDo.Properties.Resources.Priority_3;
             this.editForm_priorityButton3.Location = new System.Drawing.Point(335, 547);
             this.editForm_priorityButton3.Name = "editForm_priorityButton3";
             this.editForm_priorityButton3.Size = new System.Drawing.Size(54, 54);
@@ -236,7 +237,7 @@ namespace MichiToDo
             this.editForm_priorityButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editForm_priorityButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editForm_priorityButton2.ForeColor = System.Drawing.Color.White;
-            this.editForm_priorityButton2.Image = ((System.Drawing.Image)(resources.GetObject("editForm_priorityButton2.Image")));
+            this.editForm_priorityButton2.Image = global::MichiToDo.Properties.Resources.Priority_2;
             this.editForm_priorityButton2.Location = new System.Drawing.Point(275, 547);
             this.editForm_priorityButton2.Name = "editForm_priorityButton2";
             this.editForm_priorityButton2.Size = new System.Drawing.Size(54, 54);
@@ -255,7 +256,7 @@ namespace MichiToDo
             this.editForm_priorityButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editForm_priorityButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editForm_priorityButton1.ForeColor = System.Drawing.Color.White;
-            this.editForm_priorityButton1.Image = ((System.Drawing.Image)(resources.GetObject("editForm_priorityButton1.Image")));
+            this.editForm_priorityButton1.Image = global::MichiToDo.Properties.Resources.Priority_1;
             this.editForm_priorityButton1.Location = new System.Drawing.Point(215, 547);
             this.editForm_priorityButton1.Name = "editForm_priorityButton1";
             this.editForm_priorityButton1.Size = new System.Drawing.Size(54, 54);

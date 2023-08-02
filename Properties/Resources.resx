@@ -127,11 +127,20 @@
   <data name="Delete_Task_Button_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Delete_Task_Button_Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Priority_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Priority_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Task_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Task_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Add_New_Task_Button_Pressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Add_New_Task_Button_Pressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="List Arrow Opened" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\List Arrow Opened.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Add_New_Task_Button_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Add_New_Task_Button_Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Task_Button_Unchecked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Task_Button_Unchecked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,8 +154,11 @@
   <data name="Action_Button_Pressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Action_Button_Pressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Add_New_Task_Button_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Add_New_Task_Button_Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Priority_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Priority_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="List Arrow Closed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\List Arrow Closed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,16 +169,34 @@
   <data name="Delete_Task_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Delete_Task_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Priority_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Priority_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Priority_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Priority_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Action_Button_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Action_Button_Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Dark_Gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dark_Gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="List Arrow Closed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\List Arrow Closed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Priority_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Priority_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="List Arrow Opened" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\List Arrow Opened.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Priority_1_Selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Priority_1_Selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Priority_2_Selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Priority_2_Selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Priority_3_Selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Priority_3_Selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Priority_4_Selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Priority_4_Selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Priority_5_Selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Priority_5_Selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

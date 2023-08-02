@@ -66,7 +66,7 @@ namespace MichiToDo
             this.mainForm_toggleTaskListButton.ForeColor = System.Drawing.Color.Silver;
             this.mainForm_toggleTaskListButton.Location = new System.Drawing.Point(102, 158);
             this.mainForm_toggleTaskListButton.Name = "mainForm_toggleTaskListButton";
-            this.mainForm_toggleTaskListButton.Size = new System.Drawing.Size(316, 67);
+            this.mainForm_toggleTaskListButton.Size = new System.Drawing.Size(285, 67);
             this.mainForm_toggleTaskListButton.TabIndex = 2;
             this.mainForm_toggleTaskListButton.Text = "Tasks ToDo";
             this.mainForm_toggleTaskListButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -78,9 +78,9 @@ namespace MichiToDo
             this.mainForm_taskListPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.mainForm_taskListPanel.AutoScroll = true;
             this.mainForm_taskListPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.mainForm_taskListPanel.Location = new System.Drawing.Point(12, 241);
+            this.mainForm_taskListPanel.Location = new System.Drawing.Point(10, 241);
             this.mainForm_taskListPanel.Name = "mainForm_taskListPanel";
-            this.mainForm_taskListPanel.Size = new System.Drawing.Size(565, 200);
+            this.mainForm_taskListPanel.Size = new System.Drawing.Size(574, 200);
             this.mainForm_taskListPanel.TabIndex = 4;
             this.mainForm_taskListPanel.WrapContents = false;
             // 
@@ -144,9 +144,9 @@ namespace MichiToDo
             this.mainForm_taskDoneListPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.mainForm_taskDoneListPanel.AutoScroll = true;
             this.mainForm_taskDoneListPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.mainForm_taskDoneListPanel.Location = new System.Drawing.Point(12, 549);
+            this.mainForm_taskDoneListPanel.Location = new System.Drawing.Point(10, 549);
             this.mainForm_taskDoneListPanel.Name = "mainForm_taskDoneListPanel";
-            this.mainForm_taskDoneListPanel.Size = new System.Drawing.Size(565, 200);
+            this.mainForm_taskDoneListPanel.Size = new System.Drawing.Size(574, 200);
             this.mainForm_taskDoneListPanel.TabIndex = 8;
             this.mainForm_taskDoneListPanel.WrapContents = false;
             // 
@@ -161,7 +161,7 @@ namespace MichiToDo
             this.mainForm_toggleTaskDoneListButton.ForeColor = System.Drawing.Color.Silver;
             this.mainForm_toggleTaskDoneListButton.Location = new System.Drawing.Point(102, 464);
             this.mainForm_toggleTaskDoneListButton.Name = "mainForm_toggleTaskDoneListButton";
-            this.mainForm_toggleTaskDoneListButton.Size = new System.Drawing.Size(316, 67);
+            this.mainForm_toggleTaskDoneListButton.Size = new System.Drawing.Size(283, 67);
             this.mainForm_toggleTaskDoneListButton.TabIndex = 7;
             this.mainForm_toggleTaskDoneListButton.Text = "Tasks Done";
             this.mainForm_toggleTaskDoneListButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
