@@ -140,5 +140,11 @@
   <ItemGroup>
     <None Include="Resources\Delete_Task_Button_Pressed.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\List Arrow Closed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\List Arrow Opened.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

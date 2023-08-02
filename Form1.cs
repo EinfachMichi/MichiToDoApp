@@ -17,6 +17,16 @@ namespace MichiToDo
         public List<Task> taskList = new List<Task>();
         public List<Task> taskDoneList = new List<Task>();
 
+        private int idCount = 0;
+        public int newTaskID
+        {
+            get
+            {
+                idCount++;
+                return idCount;
+            }
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -65,16 +75,20 @@ namespace MichiToDo
 
         private void OpenTaskListSymbol()
         {
-            mainForm_taskListSymbol.Image = Properties.Resources.List_Opened_Symbol;
+            mainForm_taskListSymbol.Image = Properties.Resources.List_Arrow_Opened;
             mainForm_taskListSymbol_open = true;
             mainForm_taskListPanel.Visible = true;
+
+            RepositionTaskDoneList(464);
         }
 
         private void CloseTaskListSymbol()
         {
-            mainForm_taskListSymbol.Image = Properties.Resources.List_Closed_Symbol;
+            mainForm_taskListSymbol.Image = Properties.Resources.List_Arrow_Closed;
             mainForm_taskListSymbol_open = false;
             mainForm_taskListPanel.Visible = false;
+
+            RepositionTaskDoneList(245);
         }
 
         #endregion
@@ -149,16 +163,23 @@ namespace MichiToDo
 
         private void OpenTaskDoneListSymbol()
         {
-            mainForm_taskDoneListSymbol.Image = Properties.Resources.List_Opened_Symbol;
+            mainForm_taskDoneListSymbol.Image = Properties.Resources.List_Arrow_Opened;
             mainForm_taskDoneListSymbol_open = true;
             mainForm_taskDoneListPanel.Visible = true;
         }
 
         private void CloseTaskDoneListSymbol()
         {
-            mainForm_taskDoneListSymbol.Image = Properties.Resources.List_Closed_Symbol;
+            mainForm_taskDoneListSymbol.Image = Properties.Resources.List_Arrow_Closed;
             mainForm_taskDoneListSymbol_open = false;
             mainForm_taskDoneListPanel.Visible = false;
+        }
+
+        private void RepositionTaskDoneList(int y)
+        {
+            mainForm_taskDoneListPanel.Location = new Point(12, y + 85);
+            mainForm_taskDoneListSymbol.Location = new Point(36, y + 7);
+            mainForm_toggleTaskDoneListButton.Location = new Point(102, y);
         }
 
         #endregion
@@ -202,6 +223,18 @@ namespace MichiToDo
             OpenTaskListSymbol();
         }
 
+        public void ApplyChanges(Task task)
+        {
+            for(int i = 0; i < taskList.Count; i++)
+            {
+                if (taskList[i].id == task.id)
+                {
+                    taskList[i] = task;
+                    task.UpdateTask();
+                }
+            }
+        }
+
         public void EditTask(Task task)
         {
             EditForm editForm = new EditForm(EditMode.Edit, task);
@@ -228,6 +261,19 @@ namespace MichiToDo
             if(taskList.Count == 0) CloseTaskListSymbol();
             OpenTaskDoneListSymbol();
         }
+
+        public void RestoreTask(Task task)
+        {
+            taskDoneList.Remove(task);
+            mainForm_taskDoneListPanel.Controls.Remove(task);
+
+            taskList.Add(task);
+            mainForm_taskListPanel.Controls.Add(task);
+            task.editable = true;
+
+            if (taskDoneList.Count == 0) CloseTaskDoneListSymbol();
+            OpenTaskListSymbol();
+        }
     }
 
     public class Task : Panel
@@ -237,10 +283,12 @@ namespace MichiToDo
 
         public TaskInfo info;
         public bool editable = true;
+        public int id;
 
-        public Task(TaskInfo info)
+        public Task(TaskInfo info, int taskID)
         {
             this.info = info;
+            id = taskID;
             initComponents();
         }
 
@@ -251,7 +299,7 @@ namespace MichiToDo
 
             Controls.Add(button);
             Controls.Add(done_Button);
-            Name = $"mainForm_taskPanel_{info.taskName}";
+            Name = $"mainForm_taskPanel_{info.taskName}_{id}";
             Size = new Size(472, 61);
 
             button.AutoSize = true;
@@ -263,12 +311,13 @@ namespace MichiToDo
             button.ForeColor = Color.Silver;
             button.Image = Properties.Resources.Task_Button;
             button.Location = new Point(73, 2);
-            button.Name = $"mainForm_taskButton_{info.taskName}";
+            button.Name = $"mainForm_taskButton_{info.taskName}_{id}";
             button.Size = new Size(396, 56);
             button.Text = info.taskName;
             button.TextAlign = ContentAlignment.MiddleLeft;
             button.UseVisualStyleBackColor = true;
             button.Click += OnButtonClick;
+            button.MouseUp += OnButtonMouseUp;
 
             done_Button.Anchor = AnchorStyles.Left;
             done_Button.FlatAppearance.BorderSize = 0;
@@ -277,10 +326,15 @@ namespace MichiToDo
             done_Button.FlatStyle = FlatStyle.Flat;
             done_Button.Image = Properties.Resources.Task_Button_Unchecked;
             done_Button.Location = new Point(3, 2);
-            done_Button.Name = $"mainForm_taskStateButton_{info.taskName}";
+            done_Button.Name = $"mainForm_taskStateButton_{info.taskName}_{id}";
             done_Button.Size = new Size(55, 56);
             done_Button.UseVisualStyleBackColor = true;
             done_Button.Click += OnDoneButtonClick;
+        }
+
+        private void Button_MouseUp(object sender, MouseEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void OnButtonClick(object sender, EventArgs e)
@@ -295,6 +349,20 @@ namespace MichiToDo
             done_Button.Image = Properties.Resources.Task_Button_Checked;
             done_Button.Enabled = false;
             MainForm.Instance.TaskDone(this);
+        }
+
+        private void OnButtonMouseUp(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right) 
+            {   
+                DialogResult result = MessageBox.Show($"Do you want to restore the task '{info.taskName}'?", "Restore Task", MessageBoxButtons.YesNo);
+                if(result == DialogResult.Yes)
+                {
+                    done_Button.Image = Properties.Resources.Task_Button_Unchecked;
+                    done_Button.Enabled = true;
+                    MainForm.Instance.RestoreTask(this);
+                }
+            }
         }
 
         public void UpdateTask()

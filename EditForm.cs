@@ -14,6 +14,7 @@ namespace MichiToDo
     {
         private Task task;
         private List<Button> priorityButtons = new List<Button>();
+        private EditMode editMode;
 
         public EditForm(EditMode mode, Task task = null)
         {
@@ -24,9 +25,11 @@ namespace MichiToDo
             priorityButtons.Add(editForm_priorityButton4);
             priorityButtons.Add(editForm_priorityButton5);
 
-            if (task == null) task = new Task(new TaskInfo() { taskPriority = 1 });
+            if (task == null) 
+                task = new Task(new TaskInfo() { taskPriority = 1 }, MainForm.Instance.newTaskID);
 
             this.task = task;
+            editMode = mode;
 
             UpdatePriorityButtons();
             UpdateInfo();
@@ -56,7 +59,10 @@ namespace MichiToDo
             task.info.taskName = editForm_nameTextbox.Text;
             task.info.taskNotes = editForm_notesTextbox.Text;
 
-            MainForm.Instance.AddNewTask(task);
+            if(editMode == EditMode.Edit)
+                MainForm.Instance.ApplyChanges(task);
+            else
+                MainForm.Instance.AddNewTask(task);
             Close();
         }
 

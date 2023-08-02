@@ -36,8 +36,8 @@ namespace MichiToDo
             this.mainForm_taskListSymbol = new System.Windows.Forms.PictureBox();
             this.mainForm_titleLine = new System.Windows.Forms.PictureBox();
             this.mainForm_taskDoneListSymbol = new System.Windows.Forms.PictureBox();
-            this.mainForm_toggleTaskDoneListButton = new System.Windows.Forms.Button();
             this.mainForm_taskDoneListPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.mainForm_toggleTaskDoneListButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mainForm_taskListSymbol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainForm_titleLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainForm_taskDoneListSymbol)).BeginInit();
@@ -107,8 +107,8 @@ namespace MichiToDo
             // 
             // mainForm_taskListSymbol
             // 
-            this.mainForm_taskListSymbol.Image = global::MichiToDo.Properties.Resources.List_Closed_Symbol;
-            this.mainForm_taskListSymbol.Location = new System.Drawing.Point(36, 158);
+            this.mainForm_taskListSymbol.Image = global::MichiToDo.Properties.Resources.List_Arrow_Closed;
+            this.mainForm_taskListSymbol.Location = new System.Drawing.Point(36, 165);
             this.mainForm_taskListSymbol.Name = "mainForm_taskListSymbol";
             this.mainForm_taskListSymbol.Size = new System.Drawing.Size(60, 60);
             this.mainForm_taskListSymbol.TabIndex = 3;
@@ -130,14 +130,25 @@ namespace MichiToDo
             // 
             // mainForm_taskDoneListSymbol
             // 
-            this.mainForm_taskDoneListSymbol.Image = global::MichiToDo.Properties.Resources.List_Closed_Symbol;
-            this.mainForm_taskDoneListSymbol.Location = new System.Drawing.Point(36, 464);
+            this.mainForm_taskDoneListSymbol.Image = global::MichiToDo.Properties.Resources.List_Arrow_Closed;
+            this.mainForm_taskDoneListSymbol.Location = new System.Drawing.Point(36, 471);
             this.mainForm_taskDoneListSymbol.Name = "mainForm_taskDoneListSymbol";
             this.mainForm_taskDoneListSymbol.Size = new System.Drawing.Size(60, 60);
             this.mainForm_taskDoneListSymbol.TabIndex = 6;
             this.mainForm_taskDoneListSymbol.TabStop = false;
             this.mainForm_taskDoneListSymbol.Click += new System.EventHandler(this.mainForm_taskDoneListSymbol_Click);
             this.mainForm_taskDoneListSymbol.DoubleClick += new System.EventHandler(this.mainForm_taskDoneListSymbol_DoubleClick);
+            // 
+            // mainForm_taskDoneListPanel
+            // 
+            this.mainForm_taskDoneListPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainForm_taskDoneListPanel.AutoScroll = true;
+            this.mainForm_taskDoneListPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.mainForm_taskDoneListPanel.Location = new System.Drawing.Point(12, 549);
+            this.mainForm_taskDoneListPanel.Name = "mainForm_taskDoneListPanel";
+            this.mainForm_taskDoneListPanel.Size = new System.Drawing.Size(565, 200);
+            this.mainForm_taskDoneListPanel.TabIndex = 8;
+            this.mainForm_taskDoneListPanel.WrapContents = false;
             // 
             // mainForm_toggleTaskDoneListButton
             // 
@@ -156,17 +167,6 @@ namespace MichiToDo
             this.mainForm_toggleTaskDoneListButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.mainForm_toggleTaskDoneListButton.UseVisualStyleBackColor = true;
             this.mainForm_toggleTaskDoneListButton.Click += new System.EventHandler(this.mainForm_toggleTaskDoneListButton_Click);
-            // 
-            // mainForm_taskDoneListPanel
-            // 
-            this.mainForm_taskDoneListPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainForm_taskDoneListPanel.AutoScroll = true;
-            this.mainForm_taskDoneListPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.mainForm_taskDoneListPanel.Location = new System.Drawing.Point(12, 549);
-            this.mainForm_taskDoneListPanel.Name = "mainForm_taskDoneListPanel";
-            this.mainForm_taskDoneListPanel.Size = new System.Drawing.Size(565, 200);
-            this.mainForm_taskDoneListPanel.TabIndex = 8;
-            this.mainForm_taskDoneListPanel.WrapContents = false;
             // 
             // MainForm
             // 
@@ -206,8 +206,8 @@ namespace MichiToDo
         private System.Windows.Forms.FlowLayoutPanel mainForm_taskListPanel;
         private System.Windows.Forms.Button mainForm_addNewTaskButton;
         private System.Windows.Forms.PictureBox mainForm_taskDoneListSymbol;
-        private System.Windows.Forms.Button mainForm_toggleTaskDoneListButton;
         private System.Windows.Forms.FlowLayoutPanel mainForm_taskDoneListPanel;
+        private System.Windows.Forms.Button mainForm_toggleTaskDoneListButton;
     }
 }
 
